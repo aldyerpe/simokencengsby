@@ -1,7 +1,26 @@
+import { useState } from 'react';
 import Button from './components/Button';
 import Input from './components/Input';
+import {
+  getAuth,
+  createUserWithEmailAndPassword
+} from 'firebase/auth';
+import app from './utils/firebaseSdk';
 
 export default function App() {
+  function daftarUser () {
+    const auth = getAuth(app);
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    })
+  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <div className="bg-[url('./assets/img/simokenceng_bg.jpg')] w-full h-full bg-left bg-cover antialiased">
       <div className='max-w-[360px] min-h-screen flex flex-col items-center justify-center mx-auto'>
@@ -24,11 +43,11 @@ export default function App() {
             </p>
           </div>
           <form className='flex flex-col items-center gap-y-2 mt-4 mb-4 w-full p-4'>
-            <Input id='email' label='Email :' tipe='email' />
-            <Input id='password' label='Sandi :' tipe='password' />
+            <Input id='email' label='Email :' tipe='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+            <Input id='password' label='Sandi :' tipe='password' value={password} onChange={(e) => setPassword(e.target.value)} />
             <div className='flex items-center justify-end w-full gap-x-4'>
               <Button tema='bg-[#ff3377] text-white' label='Masuk' tipe='submit' onClick={(e) => e.preventDefault()} />
-              <Button tema='bg-[#3377ff] text-white' label='Daftar' tipe='button' onClick={(e) => e.preventDefault()} />
+              <Button tema='bg-[#3377ff] text-white' label='Daftar' tipe='button' onClick={daftarUser} />
             </div>
           </form>
           <div className='bg-white w-full mt-auto flex items-center justify-center'>

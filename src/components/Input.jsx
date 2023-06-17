@@ -6,6 +6,7 @@ export default function Input(props) {
         {label}
       </label>
       <input
+        {...props}
         className='w-[260px] rounded-md'
         id={id}
         type={tipe}
