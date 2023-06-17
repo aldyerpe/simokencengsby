@@ -5,11 +5,11 @@ export default function App() {
   return (
     <div className="bg-[url('./assets/img/simokenceng_bg.jpg')] w-full h-full bg-left bg-cover antialiased">
       <div className='max-w-[360px] min-h-screen flex flex-col items-center justify-center mx-auto'>
-        <div className='flex flex-col items-center border-2 border-[#373737] p-4 rounded-md shadow-lg backdrop-blur-sm'>
-          <div className='flex flex-col items-center text-center gap-y-2'>
+        <div className='flex flex-col items-center border-2 border-[#373737] overflow-hidden rounded-md shadow-lg backdrop-blur-sm h-[500px]'>
+          <div className='flex flex-col items-center text-center gap-y-2 p-4'>
             <h1 className='text-2xl font-bold'>
-              Selamat Datang di Aplikasi Sistem Kependudukan Simo Kenceng
-              Surabaya
+              Selamat Datang di Aplikasi Sistem Kependudukan <span className='bg-[#3377ff] px-1 py-.5 font-bold text-white'>Simo Kenceng
+              Surabaya</span>
             </h1>
             <p className='lg'>
               Silahkan{' '}
@@ -23,7 +23,7 @@ export default function App() {
               jika belum memiliki akun.
             </p>
           </div>
-          <form className='flex flex-col items-center gap-y-2 mt-4 mb-4 w-full'>
+          <form className='flex flex-col items-center gap-y-2 mt-4 mb-4 w-full p-4'>
             <Input id='email' label='Email :' tipe='email' />
             <Input id='password' label='Sandi :' tipe='password' />
             <div className='flex items-center justify-end w-full gap-x-4'>
@@ -31,8 +31,8 @@ export default function App() {
               <Button tema='bg-[#3377ff] text-white' label='Daftar' tipe='button' onClick={(e) => e.preventDefault()} />
             </div>
           </form>
-          <div className='bg-white w-full text-center'>
-            <p>&copy;2023 by aldyerpe</p>
+          <div className='bg-white w-full mt-auto flex items-center justify-center'>
+            <p className='font-semibold text-center'>&copy;2023 by<br /><a className='font-bold text-lg' href='https://github.com/aldyerpe' target='_blank'>Simo Kenceng Surabaya IT Team</a></p>
           </div>
         </div>
       </div>
