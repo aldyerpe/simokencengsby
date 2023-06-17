@@ -3,6 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  @keyframes slideDown {
+    0%, 100% { top: -300px }
+    25%, 50%, 75% { top: 0 }
+  }
+  .animasi_slideDown {
+    animation: 15s ease-in-out forwards slideDown;
+  }
+}
+
 * {
   font-family: Inter;
 }
